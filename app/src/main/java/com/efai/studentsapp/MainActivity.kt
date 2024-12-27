@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.efai.studentsapp.model.Student
+import com.efai.studentsapp.adapter.StudentsAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var studentsListRecyclerView: RecyclerView
 
     companion object {
+        lateinit var studentsAdapter: StudentsAdapter
         val studentsList = ArrayList<Student>()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +25,10 @@ class MainActivity : AppCompatActivity() {
 
 
         studentsListRecyclerView = findViewById(R.id.studentList)
+        studentsAdapter = StudentsAdapter(studentsList, applicationContext)
+        studentsListRecyclerView.adapter = studentsAdapter
         studentsListRecyclerView.layoutManager = LinearLayoutManager(this)
+
     }
 
     private fun setUpListeners() {
