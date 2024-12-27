@@ -2,6 +2,7 @@ package com.efai.studentsapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
@@ -19,6 +20,8 @@ class EditStudent : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_student)
+        supportActionBar?.title = "Edit Students"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         nameTextView = findViewById(R.id.editName)
         idTextView = findViewById(R.id.editId)
@@ -61,7 +64,6 @@ class EditStudent : AppCompatActivity() {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             }
             startActivity(intent)
-            // Ensure the current activity is finished
             finish()
         }
     }
@@ -77,5 +79,17 @@ class EditStudent : AppCompatActivity() {
             )
         }
         MainActivity.studentsAdapter.notifyItemChanged(position)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                // Handle navigation back to MainActivity
+                finish() // Close ViewStudent and return to MainActivity
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

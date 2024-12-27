@@ -1,6 +1,7 @@
 package com.efai.studentsapp
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
@@ -12,6 +13,8 @@ class AddStudent : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_student)
+        supportActionBar?.title = "New Students"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setUpListeners()
     }
 
@@ -48,5 +51,16 @@ class AddStudent : AppCompatActivity() {
         )
         MainActivity.studentsAdapter.notifyItemInserted(position)
         finish()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                // Handle navigation back to MainActivity
+                finish() // Close ViewStudent and return to MainActivity
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
