@@ -46,6 +46,7 @@ class AddStudent : AppCompatActivity() {
                 checked.isChecked
             )
         )
+        MainActivity.studentsAdapter.notifyItemInserted(position)
         finish()
     }
 }
