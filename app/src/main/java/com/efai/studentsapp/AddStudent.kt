@@ -56,8 +56,7 @@ class AddStudent : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                // Handle navigation back to MainActivity
-                finish() // Close ViewStudent and return to MainActivity
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)

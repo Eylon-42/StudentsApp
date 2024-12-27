@@ -21,7 +21,7 @@ class ViewStudent : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setContentView(R.layout.activity_view_student)
-        supportActionBar?.title = "Students Details" // Set the title
+        supportActionBar?.title = "Students Details"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setUpListeners()
 
@@ -63,8 +63,7 @@ class ViewStudent : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                // Handle navigation back to MainActivity
-                finish() // Close ViewStudent and return to MainActivity
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)

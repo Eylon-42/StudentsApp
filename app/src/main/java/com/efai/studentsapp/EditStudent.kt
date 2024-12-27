@@ -59,7 +59,6 @@ class EditStudent : AppCompatActivity() {
         deleteButton.setOnClickListener {
             MainActivity.studentsList.removeAt(position)
             MainActivity.studentsAdapter.notifyItemRemoved(position)
-            // Return to MainActivity and clear back stack
             val intent = Intent(this, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             }
@@ -85,8 +84,7 @@ class EditStudent : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                // Handle navigation back to MainActivity
-                finish() // Close ViewStudent and return to MainActivity
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)
