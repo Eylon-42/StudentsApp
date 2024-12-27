@@ -22,6 +22,7 @@ class ViewStudent : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setContentView(R.layout.activity_view_student)
+        setUpListeners()
 
         intent?.let {
             name = it.getStringExtra("name")
@@ -46,7 +47,20 @@ class ViewStudent : AppCompatActivity() {
         studentAddress.text = address
         studentChecked.isChecked = checked
     }
-
+    private fun setUpListeners() {
+        val editButton: Button = findViewById(R.id.viewEdit)
+        editButton.setOnClickListener {
+            val intent = Intent(applicationContext, EditStudent::class.java).apply {
+                putExtra("name", name)
+                putExtra("id", id)
+                putExtra("phone", phone)
+                putExtra("address", address)
+                putExtra("checked", checked)
+                putExtra("position", position)
+            }
+            startActivity(intent)
+        }
+    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {

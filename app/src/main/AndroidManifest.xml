@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".AddStudent" />
         <activity android:name=".ViewStudent" />
+        <activity android:name=".EditStudent" />
+
     </application>
 
 </manifest>
