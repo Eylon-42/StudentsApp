@@ -2,7 +2,6 @@ package com.efai.studentsapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.CheckBox
@@ -22,6 +21,8 @@ class ViewStudent : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setContentView(R.layout.activity_view_student)
+        supportActionBar?.title = "Students Details"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setUpListeners()
 
         intent?.let {
@@ -32,8 +33,6 @@ class ViewStudent : AppCompatActivity() {
             checked = it.getBooleanExtra("checked", false)
             position = it.getIntExtra("position", 0)
         }
-
-        Log.d("TAG", "view: $position")
 
         val studentName: TextView = findViewById(R.id.currentStudentname)
         val studentPhone: TextView = findViewById(R.id.currentStudentPhone)
@@ -64,8 +63,7 @@ class ViewStudent : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                // Handle navigation back to MainActivity
-                finish() // Close ViewStudent and return to MainActivity
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)

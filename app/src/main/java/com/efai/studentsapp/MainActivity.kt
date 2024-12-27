@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.title = "Students List"
         setUpListeners()
 
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         studentsAdapter = StudentsAdapter(studentsList, applicationContext)
         studentsListRecyclerView.adapter = studentsAdapter
         studentsListRecyclerView.layoutManager = LinearLayoutManager(this)
+
 
     }
 
