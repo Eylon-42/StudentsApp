@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.efai.studentsapp.MainActivity
 import com.efai.studentsapp.R
-//import com.efai.studentsapp.ViewStudent
+import com.efai.studentsapp.ViewStudent
 import com.efai.studentsapp.model.Student
 
 class StudentsAdapter(
@@ -39,18 +39,18 @@ class StudentsAdapter(
             studentsList[position].checked = isChecked
         }
 
-//        holder.itemView.setOnClickListener {
-//            val intent = Intent(context, ViewStudent::class.java).apply {
-//                putExtra("name", holder.studentName.text.toString())
-//                putExtra("id", holder.studentId.text.toString())
-//                putExtra("phone", student.phone)
-//                putExtra("address", student.address)
-//                putExtra("checked", holder.studentChecked.isChecked)
-//                putExtra("position", position)
-//                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-//            }
-//            context.startActivity(intent)
-//        }
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, ViewStudent::class.java).apply {
+                putExtra("name", holder.studentName.text.toString())
+                putExtra("id", holder.studentId.text.toString())
+                putExtra("phone", student.phone)
+                putExtra("address", student.address)
+                putExtra("checked", holder.studentChecked.isChecked)
+                putExtra("position", position)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = studentsList.size
